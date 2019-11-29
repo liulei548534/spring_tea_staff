@@ -1,0 +1,72 @@
+<!-- <view class='selects'> -->
+<!-- <block wx:key="index" wx:for='{{selects}}'>
+    <view class='select' id='{{index}}' bindtap='changeColor'>
+        <block wx:if="{{index==clickId}}">
+            <button class='btn' style='background-color: bisque'>
+        {{ item }}
+        </button>
+        </block>
+        <block wx:else>
+            <button class='btn' style='color:red'>
+        {{ item }}
+        </button>
+        </block>
+    </view>
+</block> -->
+<!-- </view> -->
+
+<!-- <view class="index_two" wx:for="{{index_five}}" wx:key="id" wx:if="{{item.status==isFinish}}">
+    <view class="index_there" wx:for="{{item.list}}" wx:for-item="item0" wx:if="{{item0.id<count&item0.num!=0}}">
+        <view class="index_four">
+            <view class="index_bj">
+                <text class="interval">商品：{{item0.name}}</text>
+                <text class="interval price">单价： ￥{{item0.price}}</text>
+                <text class="interval unm">数量： {{item0.unm}}</text>
+            </view>
+            <view class="back">
+                <view wx:key="index" wx:for='{{selects}}'>
+                    <button class="back_c" bindtap='changeColor' data-index="{{index}}"
+                        class="item {{item.isSelect?'color':''}}">已上</button>
+                    <button class="back_c" bindtap='changeColor' data-index="{{index}}"
+                        class="item {{item.isSelect?'color_one':''}}">催上</button>
+                    <button class="back_c" bindtap='changeColor' data-index="{{index}}"
+                        class="item {{item.isSelect?'color_two':''}}">退单</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view> -->
+<view class="index_two" wx:for="{{index_five}}" wx:key="id" wx:if="{{item.status==isFinish}}">
+    <view class="index_there" wx:for="{{item.list}}" wx:for-item="item0" wx:if="{{item0.id<count&item0.num!=0}}">
+        <view class="index_four">
+            <view class="index_bj">
+                <text class="interval">商品：{{item0.name}}</text>
+                <text class="interval price">单价： ￥{{item0.price}}</text>
+                <text class="interval unm">数量： {{item0.unm}}</text>
+            </view>
+            <view class="back">
+                <button class="back_c" bindtap="yes">已上</button>
+            </view>            
+        </view>
+    </view>
+</view>
+<view style="float: left" wx:key="index" wx:for='{{selects}}'>
+    <button style="width: 240rpx; height: 100rpx;" bindtap='changeColor' data-index="{{index}}"
+        class="item {{item.isSelect?'color':''}}">{{item.name}}</button>
+</view>
+<view wx:if="{{sec}}" wx:key="index">
+    <button bindtap="chang" data-index="{{index}}" class="item {{item.isSelect?'color':''}}">退单</button>
+    <button>退单</button>
+</view>
+
+<view class="mask" catchtouchmove="true" wx:if="{{showModal}}"></view>
+<view class="modalDlg" wx:if="{{showModal}}">
+    <text class="two">温馨提醒~~~</text>
+    <text class="t">确认核对账单？</text>
+    <view class="there"></view>
+    <view class="one">
+        <button bindtap="good">确定</button>
+        <view class="four"></view>
+        <button bindtap="go">取消</button>
+    </view>
+</view>

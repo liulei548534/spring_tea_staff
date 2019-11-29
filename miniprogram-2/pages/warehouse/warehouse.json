@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "select": "../../componet/select/select"
+  },
+  "navigationBarTitleText": "库存查询"
+}

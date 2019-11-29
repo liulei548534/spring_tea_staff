@@ -1,0 +1,29 @@
+<view class="">运行的订单</view>
+<navigator url="../history/history" hover-class="none" open-type="navigate">
+    <view class="start" hover-class="start_none">点击查看历史订单>></view>
+</navigator>
+<view class="index_two" wx:for="{{index_five}}" wx:key="id" wx:if="{{item.status==isFinish}}">
+    <view class="index_there" wx:for="{{item.list}}" wx:key="id" wx:for-item="item0"
+        wx:if="{{item0.id<count&item0.num!=0}}">
+        <view class="index_img">
+            <image class="index_i" mode="widthFix" src="{{item0.image}}" />
+        </view>
+        <view class="index_four">
+            <view class="back index_b" wx:if="{{item.status=='正在进行'}}">
+                <button bindtap='shanchuTap'>确认</button>
+            </view>
+            <view class="index_bj">
+                包间：{{item0.name}}
+            </view>
+            <view class="index_xf">
+                消费： ￥{{item0.price}}
+            </view>
+            <view class="index_sj">
+                时间： {{item0.data}}
+            </view>
+            <navigator class="back back_b" url="../details/details" hover-class="none" open-type="navigate">
+                <button wx:if="{{item.status=='正在进行'}}">详情</button>
+            </navigator>
+        </view>
+    </view>
+</view>

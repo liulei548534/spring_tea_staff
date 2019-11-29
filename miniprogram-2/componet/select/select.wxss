@@ -1,0 +1,13 @@
+.search_start {
+    height: 70rpx;
+    padding: 10rpx;
+}
+
+.search_na {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid #cccccc;
+    border-radius: 20rpx;
+    height: 60rpx;
+}

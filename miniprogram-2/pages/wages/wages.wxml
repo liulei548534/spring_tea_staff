@@ -1,0 +1,37 @@
+<!--pages/wages/wages.wxml-->
+<view class="wages_head">
+    <view class="wages_g">
+        <text>当前工资:</text>
+    </view>
+    <view class="table">
+        <view class="table_tr">
+            <view class="table_th">基本工资</view>
+            <view class="table_th">假期工资</view>
+            <view class="table_th">扣除工资</view>
+            <view class="table_th">总工资</view>
+        </view>
+    </view>
+    <block wx:for="{{work}}">
+        <view class="table_tr table_tr2">
+            <view class="table_td t">{{item.jb}}</view>
+            <view class="table_td t">{{item.jq}}</view>
+            <view class="table_tb t">{{item.kc}}</view>
+            <view class="table_td t">{{item.z}}</view>
+        </view>
+    </block>
+    <view class="wages_g">
+        <text>已发工资:</text>
+    </view>
+    <view class="table">
+        <view class="table_tr">
+            <view class="table_th">日期</view>
+            <view class="table_th">工资</view>
+        </view>
+    </view>
+    <block wx:for="{{work_w}}">
+        <view class="table_tr table_tr2">
+            <view class="table_td">{{item.rq}}</view>
+            <view class="table_td">{{item.gz}}</view>
+        </view>
+    </block>
+</view>

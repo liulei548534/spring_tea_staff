@@ -1,0 +1,54 @@
+/* pages/details_his/details_his.wxss */
+.index_two {
+    position: relative;
+    margin-top: 10rpx;
+    width: 100%;
+    font-size: 30rpx;
+}
+
+.index_there {
+    display: flex;
+    border-bottom: 1px solid #e1e1e1;
+    margin-top: 20rpx;
+}
+
+.index_img {
+    flex: 1;
+}
+
+.index_i {
+    box-sizing: border-box;
+    width: 350rpx;
+    height: 300rpx;
+}
+
+.index_four {
+    margin: 0 20rpx;
+    flex: 1;
+}
+
+.index_bj {
+    margin: 20rpx 0rpx;
+}
+
+.price {
+    position: absolute;
+    left: 330rpx;
+    color: red;
+}
+
+.unm {
+    position: absolute;
+    left: 580rpx;
+    color: #999;
+}
+
+.back {
+    text-align: right;
+    position: relative;
+    text-align: center;
+}
+
+.back_c {
+    margin: 20rpx 20rpx;
+}

@@ -1,0 +1,59 @@
+/* pages/history/history.wxss */
+.index_two {
+    position: relative;
+    margin-top: 10rpx;
+    width: 100%;
+    font-size: 30rpx;
+}
+
+.index_there {
+    display: flex;
+    border-top: 1px solid #e1e1e1;
+    margin-top: 30rpx;
+}
+
+.index_img {
+    flex: 1;
+}
+
+.index_i {
+    box-sizing: border-box;
+    width: 350rpx;
+    height: 300rpx;
+}
+
+.index_four {
+    margin: 0 50rpx;
+    flex: 1;
+}
+
+.index_bj {
+    margin: 20rpx 0;
+}
+
+.index_xf {
+    margin: 20rpx 0;
+    color: red;
+}
+
+.index_sj {
+    color: #999;
+}
+
+.back {
+    text-align: right;
+}
+
+.back button {
+    position: relative;
+    top: 20rpx;
+    left: -50rpx;
+    border-radius: 20rpx;
+    display: inline-block;
+    width: 250rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border: 1px solid #cccccc;
+    color: #999999;
+    font-size: 30rpx;
+}
