@@ -5,26 +5,27 @@
         <text decode="{{true}}">当期时间：{{currenH}} &nbsp;{{currenTime}}
         </text>
     </view>
-    <calendar bindtap="toastShow"></calendar>
-    <!-- <button class="user_dk" hover-class='none' type="default" bindtap="toastShow">打卡上班{{clock}}</button> -->
+    <button class="user_dk" hover-class='none' type="default" bindtap="toastShow">打卡上班{{clock}}</button>
     <toast hidden="{{status}}" duration="3000" bindchange="toastHide">
-        打卡成功
+       {{info}}
     </toast>
+    
 </view>
 <view class="user_query">
     <navigator url="../wages/wages" hover-class="none" open-type="navigate">
-        <view class="user_q" hover-class="user_color">工资查询</view>
+        <view class="user_q">工资查询</view>
     </navigator>
     <navigator url="../vacation/vacation" hover-class="none" open-type="navigate">
-        <view class="user_q" hover-class="user_color">假期查询</view>
+        <view class="user_q">假期查询</view>
     </navigator>
-    <navigator url="../work/work" hover-class="none" open-type="navigate">
+    <!-- <navigator url="../work/work" hover-class="none" open-type="navigate">
         <view class="user_q" hover-class="user_color">考勤查询</view>
-    </navigator>
+    </navigator> -->
+    <view class="user_q"><calendar></calendar></view>
     <navigator url="../warehouse/warehouse" hover-class="none" open-type="navigate">
-        <view class="user_q" hover-class="user_color">库存查询</view>
+        <view class="user_q">库存查询</view>
     </navigator>
     <navigator url="../password/password" hover-class="none" open-type="navigate">
-        <view class="user_q" hover-class="user_color">密码修改</view>
+        <view class="user_q">密码修改</view>
     </navigator>
 </view>

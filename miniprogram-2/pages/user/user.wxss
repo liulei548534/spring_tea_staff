@@ -19,7 +19,9 @@
         font-weight: bold;
         text-align: center;
     }
-    
+    .color{
+      opacity: 0;
+    }
     .user_time {
         letter-spacing: 5px;
         font-size: 30rpx;
