@@ -24,7 +24,7 @@
         letter-spacing: 5px;
         font-size: 30rpx;
         font-weight: bold;
-        margin-top: 50rpx;
+        margin: 50rpx 0;
         text-align: center;
     }
     

@@ -1,4 +1,6 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+      "calendar":"../../componet/calendar/calendar"
+    },
     "navigationBarTitleText": "个人中心"
 }

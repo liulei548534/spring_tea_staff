@@ -1,10 +1,12 @@
 <!-- pages/user/user.wxml -->
+<!-- <calendar></calendar> -->
 <view class="user_head">
     <view class="user_time">
         <text decode="{{true}}">当期时间：{{currenH}} &nbsp;{{currenTime}}
         </text>
     </view>
-    <button class="user_dk" hover-class='none' type="default" bindtap="toastShow">打卡上班{{clock}}</button>
+    <calendar bindtap="toastShow"></calendar>
+    <!-- <button class="user_dk" hover-class='none' type="default" bindtap="toastShow">打卡上班{{clock}}</button> -->
     <toast hidden="{{status}}" duration="3000" bindchange="toastHide">
         打卡成功
     </toast>
