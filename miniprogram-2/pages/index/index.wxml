@@ -1,7 +1,7 @@
-<view class="">运行的订单</view>
 <navigator url="../history/history" hover-class="none" open-type="navigate">
     <view class="start" hover-class="start_none">点击查看历史订单>></view>
 </navigator>
+<view class="have">正在进行的订单</view>
 <view class="index_two" wx:for="{{index_five}}" wx:key="id" wx:if="{{item.status==isFinish}}">
     <view class="index_there" wx:for="{{item.list}}" wx:key="id" wx:for-item="item0"
         wx:if="{{item0.id<count&item0.num!=0}}">

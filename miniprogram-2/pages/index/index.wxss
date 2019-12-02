@@ -1,8 +1,13 @@
 .start{
-    margin: 20rpx 27%;
+    margin-top: 15rpx;
     color: #999;
-    border-radius: 20rpx;
-    font-size: 35rpx
+    font-size: 35rpx;
+    float: right;
+}
+.have{
+    margin-top: 10rpx;
+    font-weight: bold;
+    font-size: 45rpx;
 }
 
 .start_none{
