@@ -1,5 +1,7 @@
 {
-  "pages": ["pages/user/user",
+  "pages": [
+    "pages/login/login",
+    "pages/user/user",
     "pages/warehouse/warehouse",
     "pages/details_his/details_his",
     "pages/history/history",
@@ -8,14 +10,9 @@
     "pages/wages/wages",
     "pages/work/work",
     "pages/ElasticFrame/ElasticFrame",
-    
     "pages/details/details",
-    
-    "pages/login/login",
     "pages/password/password",
-    "pages/lill/lill",
-    "pages/ll/ll",
-    "pages/lil/lil"
+    "pages/lill/lill"
   ],
   "window": {
     "backgroundTextStyle": "dark",

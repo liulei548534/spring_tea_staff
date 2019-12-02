@@ -10,7 +10,7 @@
       <view>
         <image class="name_img" src="/images/login_name.png"></image>
         <view class="login_my,login_na">
-          <input class=login_one" name="username" bindinput="nameinput" value='{{name}}' placeholder="请输入账号"></input>
+          <input class="login_one" name="username" bindinput="nameinput" value='{{name}}' placeholder="请输入账号"></input>
         </view>
       </view>
       <view>
@@ -22,7 +22,7 @@
     </view>
     <view class="login_login">
       <navigator url="../user/user" open-type="switchTab">{{login_user}}
-      <button class="login_lo" form-type='submit' disabled='{{disabled}}'>登录</button>
+      <button class="login_lo" form-type="submit" disabled="{{disabled}}" bindtap="submit_button">登录</button>
       </navigator>
     </view>
   </form>
