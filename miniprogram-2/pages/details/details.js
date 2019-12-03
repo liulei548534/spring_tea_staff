@@ -1,4 +1,5 @@
 // pages/details/details.js
+var app= getApp()
 Page({
 
   /**
@@ -25,20 +26,7 @@ Page({
     price: "",
     id: 0,
     bussness: [{}],
-    index_five: [{
-      status: "订单",
-      list: [{
-        id: 0,
-        name: "红糖糍粑",
-        price: 45,
-        unm: 3
-      }, {
-        id: 1,
-        name: "222",
-        price: 55,
-        unm: 55
-      }]
-    }],
+    index_five: []
   },
   //点击 单个删除 
   shanchuTap: function (e) {
@@ -101,7 +89,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -115,7 +103,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var message = app.globalData.message;
+    var data = message.split("]")[0] + "]"
+    var index_five = [{
+      status: "订单",
+      list: JSON.parse(data)
+    }]
+    this.setData({
+      index_five
+    })
   },
 
   /**

@@ -5,7 +5,7 @@ Page({
     connect() {
         var myThis = this;
         wx.connectSocket({
-            url: 'ws://10.0.100.3:9090/websocket/24'
+            url: 'ws://10.0.100.3:8080/websocket/24'
         })
         wx.onSocketOpen(function (res) {
             myThis.setData({

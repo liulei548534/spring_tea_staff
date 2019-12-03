@@ -19,9 +19,9 @@ Page({
   //触发toast
   toastShow: function(e) {
     var that = this
-    var num = 0
     wx.getLocation({
       type: 'gcj02',
+      asnc:false,
       altitude: false,
       success: (result) => {
         const latitude1 = result.latitude
@@ -30,8 +30,7 @@ Page({
         const latitude2 = 30.61859;
         const longitude2 = 104.06776;
         var EARTH_RADIUS = 6378.137; //地球半径
-
-        num = getDistance(longitude1, latitude1, longitude2, latitude2)
+        var num = getDistance(longitude1, latitude1, longitude2, latitude2)
 
         function rad(d) {
           return d * Math.PI / 180.0;
@@ -50,11 +49,11 @@ Page({
           return s;
         }
         console.log(num * 2000)
-        // that.data.num = num * 2000
         num = num * 2000
-        // that.setData({
-        //   num: num * 2000
-        // })
+        that.setData({
+          num:num
+        })
+        // num = num * 2000
         // wx.openLocation({
         //     latitude:latitude1,
         //     longitude:longitude1,
@@ -70,23 +69,23 @@ Page({
         // })
       },
       fail: () => {},
-      complete: () => {}
+      complete: () => {
+        if (this.data.num < 500) {
+          // console.log("触发点击事件，弹出toast")
+          var info = "打卡成功"
+        } else {
+          var info = "距离太远，打卡失败"
+        }
+        that.setData({
+          status: false,
+          info
+        })　　　　 //setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
+      }
     });
-    if (this.num < 500) {
-      // console.log("触发点击事件，弹出toast")
-      var info = "打卡成功"
-      status = false
-    } else {
-      info = "距离太远，打卡失败"
-      status = false
-
-    }
-    this.setData({
-      status: status,
-      info
-    })　　　　 //setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
+    // console.log(this.data.num)
   },
   toastHide: function(e) {
+    console.log(this.data.status + "===" + this.data.info + "==" + this.data.num)
     console.log("触发bindchange，隐藏toast")
     status = true
     this.setData({

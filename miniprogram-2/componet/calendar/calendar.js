@@ -38,7 +38,8 @@ Component({
     selectDay: '', // 当前选择日期
     canlender: {
       "weeks": []
-    }
+    },
+    isselect:[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29]
   },
   ready() {
     this.getWeek(new Date())
@@ -172,6 +173,7 @@ Component({
       // 循环本月天数添加到数组
       for (let i = 1; i <= new Date(year, month, 0).getDate(); i++) {
         let have = false;
+        let isSelect = false;
         for (let j = 0; j < selected.length; j++) {
           let selDate = selected[j].date.split('-');
 
@@ -179,10 +181,16 @@ Component({
             have = true;
           }
         }
+        for(let k = 0;k<this.data.isselect.length;k++){
+          if(Number(i) === this.data.isselect[k]){
+            isSelect=true;
+          }
+        }
         dates.currentMonthDys.push({
           'date': i + "",
           'month': month,
-          have
+          have,
+          isSelect
         })
       }
       // 循环下个月开始几天 添加到数组
