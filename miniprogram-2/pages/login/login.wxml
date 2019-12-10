@@ -15,12 +15,16 @@
       </view>
       <view>
         <image class="pwd_img" src="/images/login_pwd.png"></image>
+
         <view class="login_my login_pwd">
           <input name="pwd" class="login_two" type="password" maxlength="6" bindinput="pwdinput" value='{{pwd}}' placeholder="请输入您的密码"/>
+
+      
         </view>
       </view>
     </view>
     <view class="login_login">
+
       <button class="login_lo" form-type="submit" disabled="{{disabled}}" bindtap="submit_button">登录</button>
     </view>
   </form>
