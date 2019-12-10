@@ -1,0 +1,19 @@
+<!--pages/work/work.wxml-->
+<view class="work_w">打卡详情:</view>
+<view class="table_t">
+    <view class="table_th">ID</view>
+    <view class="table_th">月</view>
+    <view class="table_th">日</view>
+</view>
+<block wx:for="{{work}}">
+    <view class="table_tt table_tr2">
+        <view class="table_td">{{item.id}}</view>
+        <view class="table_td">{{item.y}}</view>
+        <view class="table_td">{{item.r}}</view>
+    </view>
+</block>
+<view class="work_w">迟到/早退
+    <view class="work_body">{{late}}</view>
+    <text>(次)</text>
+	<text>刘磊</text>
+</view>

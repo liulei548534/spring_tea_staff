@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/user/user",
+    "pages/warehouse/warehouse",
+    "pages/details_his/details_his",
+    "pages/history/history",
+    "pages/index/index",
+    "pages/vacation/vacation",
+    "pages/wages/wages",
+    "pages/work/work",
+    "pages/ElasticFrame/ElasticFrame",
+    "pages/details/details",
+    "pages/password/password",
+    "pages/lill/lill"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0066CC",
+    "navigationBarTitleText": "员工登录",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "客户订单",
+        "iconPath": "icons/homepage.png",
+        "selectedIconPath": "icons/homepage_h.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "icons/account.png",
+        "selectedIconPath": "icons/account_a.png"
+      }
+    ]
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap69.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请确认授权"
+    }
+  }
+}

@@ -1,0 +1,132 @@
+.search-view {
+  /* position: relative; */
+  overflow: hidden;
+  height: 70rpx;
+  padding: 20rpx 35rpx ;
+  background-color: #0066CC;
+}
+
+.input {
+  float: left;
+  width: 500rpx;
+  height: 70rpx;
+  font-size: 35rpx;
+  background-color: white;
+}
+.goods{
+  border-bottom: 5rpx solid #cccccc;
+  width: 100%;
+  height: 100rpx;
+  margin-top: 50rpx 
+}
+
+.head{
+  margin-left: 130rpx;
+}
+
+.search {
+  float: left;
+  width: 130rpx;
+  height: 70rpx;
+  background-color: blueviolet;
+  font-size: 28rpx;
+  color: #fff;
+  
+  box-sizing: border-box;
+}
+
+.button-hover {
+  background-color: #0066CC;
+}
+
+.boxtwo-tab-nav {
+  display: inline-block;
+  width: 47%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #ededed;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 30rpx;
+  margin-left: 5rpx;
+}
+
+.on {
+  color: #405F80;
+  border-bottom: 5rpx solid #405F80;
+}
+
+.table_t {
+  display: flex;
+  /*显示*/
+  width: 100%;
+  justify-content: center;
+  /*调整内容*/
+}
+
+.table_th {
+  width: 100%;
+  justify-content: center;
+  background: beige;
+  color: #4B3900;
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+}
+
+.table_tt {
+  display: flex;
+  /*显示*/
+  width: 100%;
+  justify-content: center;
+  /*调整内容*/
+  height: 100rpx;
+  align-items: center;
+}
+
+.table_tr2 {
+  background: #E6F3F9;
+}
+
+.table_td {
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+}
+
+.w_one {
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+}
+
+.w_two {
+  font-size: 40rpx;
+  color: #4B3900;
+  width: 50%;
+  text-align: center;
+}
+
+/* white-space: nowrap; 文本不换行*/
+
+.w_there {
+  font-size: 42rpx;
+  font-weight: 600;
+  border-bottom: 1px solid #4B3900;
+}
+
+.content {
+  display: flex;
+  /*显示*/
+  width: 100%;
+  justify-content: center;
+  /*调整内容*/
+  height: 100rpx;
+  align-items: center;
+}
+
+.comtent_c {
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+}

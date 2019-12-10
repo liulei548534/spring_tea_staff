@@ -1,0 +1,55 @@
+    /* pages/user/user.wxss */
+    
+    .user_head {
+        width: 100%;
+        height: 300rpx;
+        border: 1px solid #ccc;
+        border-top: 2px solid white;
+        border-radius: 40rpx;
+    }
+    
+    .user_dk {
+        width: 50%;
+        height: 100rpx;
+        border-radius: 40rpx;
+        border: solid 0.1rpx #ccc;
+        font-size: 40rpx;
+        letter-spacing: 10px;
+        margin-top: 50rpx;
+        font-weight: bold;
+        text-align: center;
+    }
+    .color{
+      opacity: 0;
+    }
+    .user_time {
+        letter-spacing: 5px;
+        font-size: 30rpx;
+        font-weight: bold;
+        margin: 50rpx 0;
+        text-align: center;
+    }
+    
+    .user_query {
+        text-align: center;
+        letter-spacing: 5rpx;
+        font-weight: bold;
+        margin-left: 15%;
+        width: 500rpx;
+    }
+    
+    .user_q {
+        width: 100%;
+        height: 100rpx;
+        border: 1px solid #ccc;
+        color: #5AD;
+        line-height: 100rpx;
+        margin-top: 30rpx;
+        border-radius: 20rpx;
+        /*弧度*/
+        font-size: 40rpx;
+    }
+    
+    .user_color {
+        background-color: #EDECD8;
+    }

@@ -1,0 +1,18 @@
+<!--pages/vacation/vacation.wxml-->
+<view class="vacation_head">
+    <text class="vacation_v">{{ter}}</text>当前剩余假期:
+</view>
+<view class="vacation_n"></view>
+<view class="vacation_head">节假日:</view>
+<view class="table_t">
+    <view class="table_th">节日</view>
+    <view class="table_th">日期</view>
+    <view class="table_th">天数</view>
+</view>
+<block wx:for="{{work}}">
+    <view class="table_tt table_tr2">
+        <view class="table_td">{{item.jr}}</view>
+        <view class="table_td">{{item.sj}}</view>
+        <view class="table_td">{{item.ts}}</view>
+    </view>
+</block>

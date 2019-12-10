@@ -1,0 +1,86 @@
+.start{
+    margin-top: 15rpx;
+    color: #999;
+    font-size: 35rpx;
+    float: right;
+}
+.have{
+    margin-top: 10rpx;
+    font-weight: bold;
+    font-size: 45rpx;
+}
+
+.start_none{
+    background-color: #0066CC;
+    color: white
+}
+
+.index_two {
+    position: relative;
+    margin-top: 10rpx;
+    width: 100%;
+    font-size: 30rpx;
+}
+
+.index_there {
+    display: flex;
+    border-top: 1px solid #e1e1e1;
+    margin-top: 30rpx;
+}
+
+.index_img {
+    flex: 1;
+}
+
+.index_i {
+    box-sizing: border-box;
+    width: 350rpx;
+    height: 300rpx;
+}
+
+.index_four {
+    margin: 0 20rpx;
+    flex: 1;
+}
+
+.index_bj {
+    margin: 20rpx 0;
+}
+
+.index_xf {
+    margin: 20rpx 0;
+    color: red;
+}
+
+.index_sj {
+    color: #999;
+}
+
+.back {
+    text-align: right;
+    /* position: relative; */
+}
+
+.back_b{
+    width: 140rpx;
+    float: right
+}
+
+.index_b{
+    float: right;
+    margin-top: 80rpx;
+}
+
+.back button {
+    position: relative;
+    right: 2%;
+    bottom: 0%;
+    border-radius: 20rpx;
+    display: inline-block;
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border: 1px solid #cccccc;
+    color: #999999;
+    font-size: 30rpx;
+}

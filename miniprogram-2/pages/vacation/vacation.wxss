@@ -1,0 +1,59 @@
+/* pages/vacation/vacation.wxss */
+.vacation_head {
+    font-size: 50rpx;
+    line-height: 80rpx;
+    letter-spacing: 20rpx;
+    width: 100%;
+    height: 100rpx;
+    background-color: #0066cc;
+    color: white;
+    padding-left: 20rpx;
+    margin-top: 20rpx;
+}
+
+.vacation_v {
+    float: right;
+}
+
+.vacation_n {
+    width: 100%;
+    height: 10rpx;
+}
+
+.table_t {
+    display: flex;
+    /*显示*/
+    width: 100%;
+    justify-content: center;
+    /*调整内容*/
+}
+
+.table_th {
+    width: 40%;
+    justify-content: center;
+    background: beige;
+    color: #4B3900;
+    display: flex;
+    height: 100rpx;
+    align-items: center;
+}
+
+.table_tt {
+    display: flex;
+    /*显示*/
+    width: 100%;
+    justify-content: center;
+    /*调整内容*/
+    height: 100rpx;
+    align-items: center;
+}
+
+.table_tr2 {
+    background: #E6F3F9;
+}
+
+.table_td {
+    width: 40%;
+    justify-content: center;
+    text-align: center;
+}

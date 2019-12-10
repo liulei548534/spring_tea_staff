@@ -1,0 +1,27 @@
+<!-- pages/login/login.wxml -->
+<!-- bindinput输入绑定 -->
+<view class="login_head">
+  <form bindsubmit="formSubmit">
+    <view class="login_text">
+      <navigator class="login_navigator" hover-class="none" url="../password/password" open-type="navigate">忘记密码？</navigator>
+      <text class="login_te">账号登录</text>
+    </view>
+    <view>
+      <view>
+        <image class="name_img" src="/images/login_name.png"></image>
+        <view class="login_my,login_na">
+          <input name="tel" class="login_one" maxlength="11" bindinput="telinput" value='{{tel}}' placeholder="请输入您的手机号"></input>
+        </view>
+      </view>
+      <view>
+        <image class="pwd_img" src="/images/login_pwd.png"></image>
+        <view class="login_my login_pwd">
+          <input name="pwd" class="login_two" type="password" maxlength="6" bindinput="pwdinput" value='{{pwd}}' placeholder="请输入您的密码"/>
+        </view>
+      </view>
+    </view>
+    <view class="login_login">
+      <button class="login_lo" form-type="submit" disabled="{{disabled}}" bindtap="submit_button">登录</button>
+    </view>
+  </form>
+</view>
