@@ -1,7 +1,6 @@
 // pages/password/password.js
 Page({
 
-
   /**
    * 页面的初始数据
    */
@@ -9,7 +8,7 @@ Page({
     send: false,
     alreadySend: false,
     second: 60,
-    // buttonType: 'default',
+    buttonType: 'default',
     number: '',
     code: '',
 
@@ -69,7 +68,7 @@ Page({
       return false
     }
   },
-  showSend: function () {//输完显示发送
+  showSend: function() { //输完显示发送
     if (!this.data.alreadySend) {
       this.setData({
         send: true
@@ -77,7 +76,7 @@ Page({
     }
   },
 
-  hideSend: function () {
+  hideSend: function() {
     this.setData({
       send: false,
       disabled: true,
@@ -85,7 +84,7 @@ Page({
     })
   },
   // 验证码
-  codeinput: function (e) {
+  codeinput: function(e) {
     this.setData({
       code: e.detail.value
     })
@@ -94,8 +93,11 @@ Page({
   },
 
   // 按钮
-  activeButton: function () {
-    let { number, code } = this.data
+  activeButton: function() {
+    let {
+      number,
+      code
+    } = this.data
     console.log(code)
     if (number && code) {
       this.setData({
@@ -109,15 +111,32 @@ Page({
       })
     }
   },
+  //密码
+  pwdinput: function(e) {
+    this.setData({
+      pwd:e.detail.value
+    });
+    this.setData({
+      pwdinput:true
+    })
+    if(this.data.telinput==true&&this.data.send==true&&this.data.pwdinput==true){
+      this.setData({
+        disabled:false
+      })
+    }
+  },
+
   //发送验证码
   send: function() {
     var number = this.data.number
     var sessionId = wx.getStorageSync('sessionId')
+    // console.log(sessionId)
     console.log(number);
     wx.request({
+      // url: `${config.api + '/sendSms.html'}`,
       url: 'http://localhost:8080/sendSms',
       data: {
-        number: number
+        tel: number
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -135,7 +154,7 @@ Page({
     this.timer()
   },
   //显示时间
-  timer: function () {
+  timer: function() {
     let promise = new Promise((resolve, reject) => {
       let setTimer = setInterval(
         () => {
@@ -150,11 +169,62 @@ Page({
             })
             resolve(setTimer)
           }
-        }
-        , 1000)
+        }, 1000)
     })
     promise.then((setTimer) => {
       clearInterval(setTimer)
+    })
+  },
+  //验证码
+  codeinput: function(e) {
+    this.setData({
+      code: e.detail.value
+    })
+    this.activeButton()
+    console.log('code:' + this.data.code)
+  },
+
+  formSubmit:function(e){
+    var tel=e.detail.value.tel
+    var code = e.detail.value.code
+    var pwd = e.detail.value.pwd
+    var pwds = e.detail.value.pwds
+    console.log("用户"+tel+"code"+code+"pwd"+pwd+"pwds"+pwds)
+    // var sessionId=this.data.sessionId;
+    wx.request({
+      url: 'http://localhost:8080/addTel',
+      data: {
+        tel: tel,
+        code: code,
+        pwd: pwd,
+        pwds: pwds,
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        // "Cookie": sessionId
+      },
+      // method: 'POST',
+      success: function(res) {
+        console.log('回调函数'+res.data)
+        if((parseInt(res.statusCode)===200)&&res.data.massage==='pass'){
+          wx.showToast({
+            title: '验证成功',
+            icon: 'success',
+          })
+          setTimeout(function () {
+            wx.switchTab({
+              url: '../login/login',
+            })
+          }, 2000)
+        }else{
+          wx.showToast({
+            title: "失败",
+          })
+        }
+      },
+      fail: function(res) {
+        console.log(res)
+      },
     })
   },
   /**
@@ -164,13 +234,22 @@ Page({
 
   },
 
-  /**
+   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-
+  onReady: function () {
+  //   wx.request({
+  //     // url: `${config.api + '/getSessionId.html'}`,
+  //     url: 'http://localhost:8080/getSessionId',
+  //     header: {
+  //       "Content-Type": "application/x-www-form-urlencoded"
+  //     },
+  //     // method: 'POST',
+  //     success: function (res) {
+  //       wx.setStorageSync('sessionId', 'JSESSIONID=' + res.data)
+  //     }
+  //   })
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -212,5 +291,4 @@ Page({
   onShareAppMessage: function() {
 
   }
-
 })

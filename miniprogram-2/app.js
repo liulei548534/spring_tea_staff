@@ -12,7 +12,6 @@ App({
         // wx.onSocketOpen(function (res) {
         //   console.log("websocket连接服务器成功")
         // })
-
     },
 
     /**

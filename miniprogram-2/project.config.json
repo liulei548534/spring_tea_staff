@@ -4,18 +4,26 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"coverView": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.4",
-	"appid": "wx1be590f87aca3a3d",
-	"projectname": "miniprogram-1",
+	"appid": "wx4d1db663b4ec769f",
+	"projectname": "miniprogram-2",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -31,13 +39,45 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ElasticFrame/ElasticFrame",
+					"pathName": "pages/ElasticFrame/ElasticFrame",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/password/password",
+					"pathName": "pages/password/password",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"scene": null
+				}
+			]
 		}
 	}
 }

@@ -18,9 +18,9 @@ Page({
       no: e.detail.value
     });
     this.setData({
-      noinput: true
+      telinput: true
     });
-    if (this.data.noinput == true && this.data.pwdinput == true) {
+    if (this.data.telinput == true && this.data.pwdinput == true) {
       this.setData({
         disabled: false
       });
@@ -33,7 +33,7 @@ Page({
     this.setData({
       pwdinput: true
     });
-    if (this.data.noinput == true && this.data.pwdinput == true) {
+    if (this.data.telinput == true && this.data.pwdinput == true) {
       this.setData({
         disabled: false
       });
