@@ -1,6 +1,6 @@
 <!--pages/vacation/vacation.wxml-->
 <view class="vacation_head">
-    <text class="vacation_v">{{ter}}</text>当前剩余假期:
+    当前剩余假期: <text class="vacation_v">{{ter}}</text>
 </view>
 <view class="vacation_n"></view>
 <view class="vacation_head">节假日:</view>

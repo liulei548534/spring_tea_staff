@@ -130,3 +130,45 @@
   justify-content: center;
   text-align: center;
 }
+
+/*   linjian 2019.12.11*/
+.top,.top_1,.top_2{
+  display: flex;
+}
+.top text{
+  flex: 1;
+  text-align: center;
+  padding-top: 15rpx;
+   padding-bottom: 15rpx;
+   color: #36c37d;
+  
+}
+.top_1 text{
+  flex: 1;
+  margin-left: 20rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+.top_1{
+  background-color: blanchedalmond;
+}
+.top_2 text{
+  flex: 1;
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+.top_2{
+   border-bottom: 1px solid gainsboro;
+   
+}
+.shangping_count{
+ margin-right: -40rpx;
+}
+.info{
+  border-left: 3px solid blue;
+  padding-left: 30rpx;
+}
+.tui-nav-active {
+  color: red;
+
+}

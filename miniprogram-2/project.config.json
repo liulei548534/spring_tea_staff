@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.4",
-	"appid": "wx4d1db663b4ec769f",
+	"appid": "wx59f5a417f04da1ed",
 	"projectname": "miniprogram-2",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -75,6 +75,20 @@
 					"id": -1,
 					"name": "pages/user/user",
 					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/warehouse/warehouse",
+					"pathName": "pages/warehouse/warehouse",
 					"scene": null
 				}
 			]

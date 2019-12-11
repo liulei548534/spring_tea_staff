@@ -12,7 +12,7 @@
 }
 
 .vacation_v {
-    float: right;
+    padding-left: 25rpx;
 }
 
 .vacation_n {

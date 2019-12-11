@@ -64,6 +64,7 @@ Page({
     
   },
   onShow:function(){
+    //订单数据
     var message = app.globalData.message;
     var time = message.split("]")[1]
     var data = message.split("]")[0] + "]"

@@ -5,13 +5,13 @@ App({
      * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
      */
     onLaunch: function () {
-        // var myThis = this;
-        // wx.connectSocket({
-        //     url: 'ws://localhost:8080/websocket/24'
-        // })
-        // wx.onSocketOpen(function (res) {
-        //   console.log("websocket连接服务器成功")
-        // })
+        var myThis = this;
+        wx.connectSocket({
+          url: 'ws://10.0.100.30:8090/websocket/24'
+        })
+        wx.onSocketOpen(function (res) {
+          console.log("websocket连接服务器成功")
+        })
     },
 
     /**

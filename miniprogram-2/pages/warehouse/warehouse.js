@@ -6,25 +6,11 @@ Page({
      */
     data: {
         isSelect: false,
-        tablist: [{
-            id: "1",
-            name: '→商品←',
-            t: '绿茶',
-            y: '25',
-            u: '112',
-            isSelect: true
-        },
-            {
-                id: "2",
-                name: '→小吃←',
-                t: '瓜子',
-                y: '22',
-                u: '11',
-                isSelect: false
-            },
-        ],
+        tablist:[],
         bechoice: 1,
         content: '',
+        //商品信息
+        shangpingInfo:[],
     },
     /**
      * item点击事件
@@ -53,7 +39,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      var that = this
+      //向后台请求商品数据，并保存在缓存
+      wx.request({
+        url: 'http://10.0.100.30:8083/customer/food/findAll',
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success(res) {
+          wx.setStorageSync("orderList", res.data)
+          that.setData({
+            shangpingInfo: res.data
+          })
+        }
+      })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -66,7 +65,23 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      var time = 5
+      var inter = setInterval(function () {
+        time = time - 1
+        if (time === 0) {
+        var that = this
+      //向后台请求商品数据，并保存在缓存
+      wx.request({
+        url: 'http://10.0.100.30:8083/customer/food/findAll',
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success(res) {
+          wx.setStorageSync("orderList", res.data)
+        }
+         })
+        }
+      }, 1000)
     },
 
     /**
@@ -102,5 +117,45 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    //茶
+    teaClick:function(){
+      var shangpInfo = []
+      var shang = wx.getStorageSync("orderList")
+      for (var i = 0; i < shang.length; i++) {
+        if (shang[i].type == "tea") {
+          shangpInfo.push(shang[i])
+        }
+        this.setData({
+          shangpingInfo: shangpInfo
+        })
+      }
+    },
+    //包间
+  houseClick: function () {
+    var houseInfo = []
+    var shang = wx.getStorageSync("orderList")
+    for (var i = 0; i < shang.length; i++) {
+      if (shang[i].type == "house") {
+        houseInfo.push(shang[i])
+      }
+      this.setData({
+        shangpingInfo: houseInfo
+      })
     }
+  },
+  //小吃
+   snackClick: function () {
+     var snackInfo = []
+     var shang = wx.getStorageSync("orderList")
+     for (var i = 0; i < shang.length; i++) {
+       if (shang[i].type == "snack") {
+         snackInfo.push(shang[i])
+       }
+       this.setData({
+         shangpingInfo: snackInfo
+       })
+     }
+  }
+
 })

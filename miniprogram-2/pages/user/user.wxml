@@ -1,31 +1,16 @@
-<!-- pages/user/user.wxml -->
-<!-- <calendar></calendar> -->
+<!-- 顶部 -->
 <view class="user_head">
     <view class="user_time">
-        <text decode="{{true}}">当期时间：{{currenH}} &nbsp;{{currenTime}}
-        </text>
+        <text decode="{{true}}">当期时间：{{currenH}} &nbsp;{{currenTime}} </text>
     </view>
     <button class="user_dk" hover-class='none' type="default" bindtap="toastShow">打卡上班{{clock}}</button>
-    <toast hidden="{{status}}" duration="3000" bindchange="toastHide">
-       {{info}}
-    </toast>
-    
+    <toast hidden="{{status}}" duration="3000" bindchange="toastHide"> {{info}}</toast>
 </view>
+<!-- 中心内容 -->
 <view class="user_query">
-    <navigator url="../wages/wages" hover-class="none" open-type="navigate">
-        <view class="user_q">工资查询</view>
-    </navigator>
-    <navigator url="../vacation/vacation" hover-class="none" open-type="navigate">
-        <view class="user_q">假期查询</view>
-    </navigator>
-    <!-- <navigator url="../work/work" hover-class="none" open-type="navigate">
-        <view class="user_q" hover-class="user_color">考勤查询</view>
-    </navigator> -->
-    <view class="user_q"><calendar></calendar></view>
-    <navigator url="../warehouse/warehouse" hover-class="none" open-type="navigate">
-        <view class="user_q">库存查询</view>
-    </navigator>
-    <navigator url="../password/password" hover-class="none" open-type="navigate">
-        <view class="user_q">密码修改</view>
-    </navigator>
+       <view class="user_q" bindtap="moneyClick">工资查询</view>
+       <view class="user_q" bindtap="dayClick">假期查询</view>
+       <view class="user_q"> <calendar></calendar></view>
+       <view class="user_q" bindtap="kucunClick">库存查询</view>
+       <view class="user_q" bindtap="updateClick">密码修改</view>
 </view>
