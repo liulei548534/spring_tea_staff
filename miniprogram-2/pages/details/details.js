@@ -89,7 +89,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options)
+    var message = app.globalData.ingOrder[options.index]
+    this.setData({
+      index_five:message
+    })
   },
 
   /**
@@ -103,15 +107,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var message = app.globalData.message;
-    var data = message.split("]")[0] + "]"
-    var index_five = [{
-      status: "订单",
-      list: JSON.parse(data)
-    }]
-    this.setData({
-      index_five
-    })
+   
   },
 
   /**

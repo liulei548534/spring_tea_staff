@@ -1,4 +1,5 @@
 // pages/history/history.js
+var app = getApp()
 Page({
 
   /**
@@ -7,29 +8,7 @@ Page({
     data: {
       // 显示数量
       count: 100,
-      index_five: [{
-          list: [{
-              id: 0,
-              image: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2582106591,114612560&fm=26&gp=0.jpg",
-              name: "111",
-              price: 45,
-              data: "11:11"
-          }, {
-              id: 1,
-              image: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2582106591,114612560&fm=26&gp=0.jpg",
-              name: "222",
-              price: 55,
-              data: "12:11"
-          },
-          {
-            id: 1,
-            image: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2582106591,114612560&fm=26&gp=0.jpg",
-            name: "222",
-            price: 55,
-            data: "12:11"
-        },
-          ]
-      },],
+      index_five:[]
   },
 
 
@@ -44,7 +23,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(app.globalData.historyOrder)
+      this.setData({
+        index_five:app.globalData.historyOrder
+      })
   },
 
   /**

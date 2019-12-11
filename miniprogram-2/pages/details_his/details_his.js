@@ -1,4 +1,5 @@
 // pages/details_his/details_his.js
+var app = getApp()
 Page({
 
  /**
@@ -9,30 +10,7 @@ Page({
       isSelect: false
     },],
     count: 3,
-    index_five: [{
-      list: [{
-        id: 0,
-        name: "红糖糍粑",
-        price: 45,
-        unm: 3
-      }, {
-        id: 1,
-        name: "222",
-        price: 55,
-        unm: 55
-      },
-      {
-        id: 0,
-        name: "红糖糍粑",
-        price: 45,
-        unm: 3
-      }, {
-        id: 1,
-        name: "222",
-        price: 55,
-        unm: 55
-      }]
-    }],
+    index_five: [],
   },
   /**
    * 生命周期函数--监听页面加载
@@ -52,7 +30,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      this.setData({
+        index_five:app.globalData.historyOrder
+      })
   },
 
   /**

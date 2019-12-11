@@ -10,18 +10,18 @@
         </view>
         <view class="index_four">
             <view class="back index_b" wx:if="{{item.status=='正在进行'}}">
-                <button bindtap='shanchuTap'>确认</button>
+                <button bindtap='shanchuTap' wx-index="{{index}}">确认</button>
             </view>
             <view class="index_bj">
-                包间：{{item0.name}}
+                包间：{{item.order_package}}
             </view>
             <view class="index_xf">
                 消费： ￥{{item0.price}}
             </view>
             <view class="index_sj">
-                时间： {{item0.data}}
+                时间： {{item.date}}
             </view>
-            <navigator class="back back_b" url="../details/details" hover-class="none" open-type="navigate">
+            <navigator class="back back_b" url="../details/details?index={{index}}" hover-class="none" open-type="navigate">
                 <button wx:if="{{item.status=='正在进行'}}">详情</button>
             </navigator>
         </view>

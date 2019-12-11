@@ -1,14 +1,14 @@
 <!--pages/details/details.wxml-->
 
-<view class="index_two" wx:for="{{index_five}}" wx:key="id" wx:if="{{item.status==isFinish}}">
+<view class="index_two" wx:for="{{index_five}}" wx:key="id">
     <view class="index_there" wx:for="{{item.list}}" wx:for-item="item0" wx:for-index="index2">
         <view class="index_four">
-            <view class="index_bj">
+            <view class="index_bj" wx:if="{{item0.num!=0}}">
                 <text class="interval">商品：{{item0.name}}</text>
                 <text class="interval price">单价： ￥{{item0.price}}</text>
                 <text class="interval unm">数量： {{item0.num}}</text>
             </view>
-            <view class="back">
+            <view class="back" wx:if="{{item0.num!=0}}">
                 <button class="back_c" bindtap='shanchuTap'>已上</button>
                 <button class="back_c {{item.isSelect?'color':''}}" wx:for="{{changeColor}}" data-index="{{index+'/'+index2}}" 
                 bindtap="changeColor">{{item.name}}</button>

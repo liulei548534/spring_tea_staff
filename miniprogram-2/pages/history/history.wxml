@@ -1,23 +1,22 @@
 <!--pages/history/history.wxml-->
-<view class="index_two" wx:for="{{index_five}}" wx:key="id">
-        <view class="index_there" wx:for="{{item.list}}" wx:key="id" wx:for-item="item0"
-            wx:if="{{item0.id<count&item0.num!=0}}">
+
+        <view class="index_there" wx:for="{{index_five}}" wx:key="id" wx:for-item="item"
+            >
             <view class="index_img">
-                <image class="index_i" mode="widthFix" src="{{item0.image}}" />
+                <image class="index_i" mode="widthFix" src="{{item.list[0].image}}" />
             </view>
             <view class="index_four">
                 <view class="index_bj">
-                    消费客户： {{item0.name}}
+                    订单编号： {{item.orderList}}
                 </view>
                 <view class="index_xf">
-                    消费总计： ￥{{item0.price}}
+                    包间名：{{item.order_package}}
                 </view>
                 <view class="index_sj">
-                    消费时间： {{item0.data}}
+                    消费时间： {{item.date}}
                 </view>
                 <navigator class="back" url="../details_his/details_his" hover-class="none" open-type="navigate">
                     <button>查看详情>></button>
                 </navigator>
             </view>
         </view>
-    </view>

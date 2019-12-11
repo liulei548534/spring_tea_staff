@@ -9,6 +9,7 @@
     color: white;
     padding-left: 20rpx;
     margin-top: 20rpx;
+    
 }
 
 .vacation_v {

@@ -1,12 +1,11 @@
 <!--pages/details_his/details_his.wxml-->
-<view class="index_two" wx:for="{{index_five}}" wx:key="id" wx:if="{{item.status==isFinish}}">
-    <view class="index_there" wx:for="{{item.list}}" wx:for-item="item0" wx:for-index="index2"
-        wx:if="{{item0.id<count&item0.num!=0}}">
+<view class="index_two" wx:for="{{index_five}}" wx:key="id">
+    <view class="index_there" wx:for="{{item.list}}" wx:for-item="item0" wx:for-index="index2">
         <view class="index_four">
             <view class="index_bj">
                 <text>商品：{{item0.name}}</text>
                 <text class="price">单价： ￥{{item0.price}}</text>
-                <text class="unm">数量： {{item0.unm}}</text>
+                <text class="unm">数量： {{item0.num}}</text>
             </view>
         </view>
     </view>
