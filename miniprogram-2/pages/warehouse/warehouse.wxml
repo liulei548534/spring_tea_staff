@@ -1,38 +1,8 @@
-<!-- <view class='search-view'> -->
-    <!--confirm-type="search"确认类型搜索  maxlength最大长度-->
-    <!--   <input class='input' confirm-type="search" maxlength="30" placeholder='请输入搜索内容'></input>
-      <button class='search' hover-class='button-hover'>搜索</button>
-</view> -->
-<!-- 
-    <view class="w_two {{bechoice == item.id ? 'choice':''}}" bindtap='choiceType' data-id="{{item.id}}"
-        wx:for="{{tablist}}" wx:for-item="item" wx:key="{{index}}">{{item.name}}</view>
-</view> -->
-<view>
+ <!-- 顶部搜索 -->
+<view bindtap="searchClick" class="su">
     <select></select>
 </view>
-<!-- <view>
-    <view class="table_t">
-        <view class="table_th">种类</view>
-        <view class="table_th">单价</view>
-        <view class="table_th">数量</view>
-    </view>
-    <view class="goods">
-        <text class="head">→请点击查询的商品的类型←</text>
-    </view> -->
-    <!-- <view class="content" sx:for="{{cmn}}">
-        <view class="comtent_c">{{type}}</view>
-        <view class="comtent_c">{{money}}</view>
-        <view class="comtent_c">{{num}}</view>      
-    </view> -->
-<!-- </view>
-<view class="w_one">
-<block wx:for="{{tablist}}" wx:for-item="itme" wx:key="{{imdex}}">
-    <view class="w_two {{bechoice?'choice_true':'choice_false'}}" hover-class="w_there" bindtap="choiceType" wx:key="{{index}}" data-item="{{itme}}">
-        {{itme.name}}
-    </view>
-</block>
-</view> -->
-
+<!-- 商品信息 -->
 <view>
   <text class="info">请选择要查询商品类型的库存：</text>
    <view class="top">
@@ -48,7 +18,7 @@
       <text>商品数量</text>
    </view>
   <view class="shangping">
-            <view class="top_2" wx:for="{{shangpingInfo}}" wx:key="name">
+            <view class="top_2  {{item.count<10&item.type!='house'?'redColor':''}} {{item.count==0&item.type=='house'?'redColor':''}}" wx:for="{{shangpingInfo}}" wx:key="name">
                <text class="title">{{item.name}}</text>
                <text class="Teahouse-Price">￥{{item.price}}</text>
                <text class="shangping_count">{{item.count}}</text>

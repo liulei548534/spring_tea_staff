@@ -45,6 +45,7 @@ Page({
     onShow: function () {
       //向缓存获取数据，找到需要的假期天数
       var userinfo = wx.getStorageSync("uIfo")
+      console.log(userinfo.yearDay)
        var that = this
        that.setData({
          ter:userinfo.yearDay

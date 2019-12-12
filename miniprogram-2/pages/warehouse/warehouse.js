@@ -156,6 +156,11 @@ Page({
          shangpingInfo: snackInfo
        })
      }
+  },
+  searchClick:function(){
+    wx.navigateTo({
+      url: '../search/search',
+    })
   }
 
 })

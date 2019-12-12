@@ -16,7 +16,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   var historyOrder= wx.getStorageSync("historyOrder")
+    this.setData({
+      index_five: historyOrder[options.num]
+    })
+    console.log(this.data.index_five)
   },
 
   /**
@@ -30,9 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      this.setData({
-        index_five:app.globalData.historyOrder
-      })
+     
   },
 
   /**

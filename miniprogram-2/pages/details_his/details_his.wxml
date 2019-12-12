@@ -1,6 +1,6 @@
 <!--pages/details_his/details_his.wxml-->
-<view class="index_two" wx:for="{{index_five}}" wx:key="id">
-    <view class="index_there" wx:for="{{item.list}}" wx:for-item="item0" wx:for-index="index2">
+<view class="index_two">
+    <view class="index_there" wx:for="{{index_five.orderinfo}}" wx:for-item="item0" wx:for-index="index2">
         <view class="index_four">
             <view class="index_bj">
                 <text>商品：{{item0.name}}</text>

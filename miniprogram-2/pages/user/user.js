@@ -116,16 +116,17 @@ Page({
     }
     //向后台请求员工信息，并保存在缓存
     wx.request({
-      url: 'http://localhost:8083/selectInfo',
+      url: 'http://10.0.100.30:8095/staClient/selectInfo',
 
     data:{
        name:'liulei',
-       telephone:'13458552184  '   
+       telephone:'13458552184'   
     },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+        console.log(res.data.userInfo)
         wx.setStorageSync("uIfo", res.data.userInfo)
       }
     })

@@ -12,7 +12,8 @@
     "pages/ElasticFrame/ElasticFrame",
     "pages/details/details",
     "pages/password/password",
-    "pages/lill/lill"
+    "pages/lill/lill",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "dark",

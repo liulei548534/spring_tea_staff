@@ -3,19 +3,19 @@
         <view class="index_there" wx:for="{{index_five}}" wx:key="id" wx:for-item="item"
             >
             <view class="index_img">
-                <image class="index_i" mode="widthFix" src="{{item.list[0].image}}" />
+                <image class="index_i" src="{{item.orderinfo[0].image}}"/>
             </view>
             <view class="index_four">
                 <view class="index_bj">
-                    订单编号： {{item.orderList}}
+                    订单编号： {{item.custormprice}}
                 </view>
                 <view class="index_xf">
-                    包间名：{{item.order_package}}
+                    包间名：{{item.housenumber}}
                 </view>
                 <view class="index_sj">
-                    消费时间： {{item.date}}
+                    消费时间： {{item.orderdate}}
                 </view>
-                <navigator class="back" url="../details_his/details_his" hover-class="none" open-type="navigate">
+                <navigator class="back" url="../details_his/details_his?num={{index}}" hover-class="none" open-type="navigate">
                     <button>查看详情>></button>
                 </navigator>
             </view>

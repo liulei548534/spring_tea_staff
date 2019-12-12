@@ -5,6 +5,7 @@ Page({
   /**
      * 页面的初始数据
      */
+
     data: {
       // 显示数量
       count: 100,
@@ -23,10 +24,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(app.globalData.historyOrder)
-      this.setData({
-        index_five:app.globalData.historyOrder
-      })
+    var that = this
+    wx.request({
+      url: 'http://10.0.100.30:8083/client/orderList/findAll',
+      success:function(res){
+        res.data.list.forEach((v,i)=>true?v.orderinfo=JSON.parse(v.orderinfo):"")
+        wx.setStorageSync("historyOrder",res.data.list)
+        that.setData({
+          index_five:res.data.list
+        })
+      }
+    })
   },
 
   /**

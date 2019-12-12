@@ -1,0 +1,21 @@
+<!-- 搜索框 -->
+<view class="search_head" hover-class="none">
+  <view class="left">
+    <input bindinput="handInput" value="{{quxiao}}">
+    </input>
+  </view>
+  <view class="right" bindtap="quxiao">取消</view>
+</view>
+<!-- 商品信息 -->
+<view class="top_1">
+      <text>商品名</text>
+      <text>商品价格</text>
+      <text>商品数量</text>
+   </view>
+  <view class="shangping">
+            <view class="top_2 {{item.count<10&item.type!='house'?'redColor':''}} {{item.count==0&item.type=='house'?'redColor':''}}" wx:for="{{index}}" wx:if="{{info=='songmingjie'}}" wx:key="name">
+               <text class="title">{{item.name}}</text>
+               <text class="Teahouse-Price">￥{{item.price}}</text>
+               <text class="shangping_count">{{item.count}}</text>
+            </view>
+   </view>

@@ -63,12 +63,16 @@ Page({
    */
   onLoad: function(options) {
     var myThis = this;
-     wx.connectSocket({
-       url: 'ws://10.0.100.30:8090/websocket/24'
-     })
-     wx.onSocketOpen(function (res) {
-       
-     })  
+   var flag = wx.getStorageSync("flag")
+     if(flag==""){
+       wx.connectSocket({
+         url: 'ws://10.0.100.30:8090/websocket/24'
+       })
+       wx.onSocketOpen(function (res) {
+         console.log("链接服务器成功")
+       }) 
+       wx.setStorageSync("flag", true) 
+     }
     var myThis = this;
     wx.onSocketMessage(function (res) {
       var message = JSON.parse(res.data)
@@ -90,8 +94,8 @@ Page({
       info.push({})
       console.log(info[i])
     }
-
     var isWho = "";
+    console.log(myThis.data.index_five)
       if (myThis.data.index_five[0].list.length == 0) {
       isWho = "one"
     } else {
