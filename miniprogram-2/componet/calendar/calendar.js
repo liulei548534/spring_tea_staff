@@ -39,7 +39,7 @@ Component({
     canlender: {
       "weeks": []
     },
-    isselect:[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29]
+    isselect:[]
   },
   ready() {
     this.getWeek(new Date())
@@ -58,6 +58,7 @@ Component({
       if (this.data.isOpen) {
         return
       }
+      console.log("我是你爸爸")
       let self = this;
       if (self.data.calShow) {
         self.setData({
@@ -87,7 +88,6 @@ Component({
 
     },
     selectDay(e) {
-
       let index = e.currentTarget.dataset.index;
       let week = e.currentTarget.dataset.week;
       let ischeck = e.currentTarget.dataset.ischeck;
