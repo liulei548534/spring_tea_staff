@@ -33,6 +33,8 @@ Component({
    * 组件的初始数据
    */
   data: {
+    allDate:"",
+    ddd:"",
     calShow: true, // 日历组件是否打开
     dateShow: false, // 日期是否选择
     selectDay: '', // 当前选择日期
@@ -55,10 +57,51 @@ Component({
    */
   methods: {
     dateSelection() {
+      var that = this
+      wx.request({
+        url: 'http://10.0.100.30:8095/client/checkIn/selectByTelephone/',
+        data:{
+          username:wx.getStorageSync("username")
+        },
+        success:function(e){
+          var allDate = e.data.checkIn
+          var array = []
+          allDate.forEach((v,i)=>true?array.push({
+            year:v.checkInYear,
+            month:v.checkInMonth,
+            day:v.checkInDay.split(",")
+          }):"")
+          that.setData({
+            allDate:array
+          })
+          that.info(array)
+        }
+      })
+    },
+    info:function(allData){
+      var select_day = this.data.canlender.weeks
+      var monthDate = this.data.selectDay.split("月")[0]
+      var riqi = []
+      allData[0].day.forEach((v, i) => true?riqi.push(parseInt(v)):"")
+      if (monthDate === allData[0].month) {
+        this.setData({
+          isselect: riqi
+        })
+      }
+      console.log(this.data.isselect)
+      var ddd = this.data.ddd
+      if (ddd == "") {
+        var dateDate = new Date()
+        ddd = dateDate.getFullYear() + "-" + (dateDate.getMonth() + 1) + "-" + dateDate.getDate()
+      }
+      this.getWeek(ddd)
+      this.isSelect(ddd)
+      // var new_array = 
+      // console.log(new_array)
+
       if (this.data.isOpen) {
         return
       }
-      console.log("我是你爸爸")
       let self = this;
       if (self.data.calShow) {
         self.setData({
@@ -85,7 +128,6 @@ Component({
           }, 300)
         })
       }
-
     },
     selectDay(e) {
       let index = e.currentTarget.dataset.index;
@@ -99,16 +141,15 @@ Component({
 
     },
     packup() {
-
       let self = this;
       if (this.data.isOpen) {
         let year = self.data.canlender.year + "-" + self.data.canlender.month + "-" + self.data.canlender.date
-        let _date = self.getDate(year, 0);
+       let  _date = self.getDate(year, 0); self
         self.getWeek(_date);
         return
       }
       self.setData({
-        dateShow: false
+        dateShow: false,
       }, () => {
         setTimeout(() => {
           self.setData({
@@ -136,7 +177,12 @@ Component({
       }
       let year = this.data.canlender.year + "-" + this.data.canlender.month + "-" + this.data.canlender.date
       let _date = this.getDate(year, num, types === 'month' ? "month" : "day");
+      console.log(_date)
+      this.isSelect(_date)
       this.getWeek(_date);
+      this.setData({
+        ddd:_date
+      })
     },
     // 获取日历内容
     getWeek(dateData) {
@@ -247,6 +293,32 @@ Component({
       let m = (dd.getMonth() + 1) < 10 ? '0' + (dd.getMonth() + 1) : (dd.getMonth() + 1)// 获取当前月份的日期，不足10补0
       let d = dd.getDate() < 10 ? '0' + dd.getDate() : dd.getDate()// 获取当前几号，不足10补0
       return y + '-' + m + '-' + d
+    },
+    isSelect: function (_date){
+      console.log(this.data.isselect)
+        var allDate = this.data.allDate
+        console.log(allDate)
+        var year = _date.split("-")[0]
+        var month = _date.split("-")[1]
+        var my_this = this
+        var count=0
+        console.log(allDate)
+      var riqi = []
+      // allData[i].day.forEach((v, i) => true ? riqi.push(parseInt(v)) : "")
+      allDate.forEach((v, i) => v.year == year ? (v.month == month ? function(){
+        console.log("我是你爸爸")
+        my_this.setData({
+          // isselect:
+      })
+      }:count++):my_this.setData({
+        isselect:[]
+      }))
+      if (count == allDate.length) {
+          my_this.setData({
+           isselect:[]
+          })
+      }
     }
+   
   }
 })

@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    count:0,
     show: false,
     currenH: '',
     currenTime: '',
@@ -53,32 +54,39 @@ Page({
         that.setData({
           num:num
         })
-        // num = num * 2000
-        // wx.openLocation({
-        //     latitude:latitude1,
-        //     longitude:longitude1,
-        //     scale: 18
-        //   })
-        // wx.chooseLocation({
-        //     latitude: latitude1,
-        //     longitude: longitude1,
-        //     scale: 18,
-        //     success: (result) => {
-        //         console.log(result)
-        //     }
-        // })
       },
       fail: () => {},
       complete: () => {
-        if (this.data.num < 500) {
+        var count = that.data.count
+        if (count>0){
+          info = "您已经打过卡了"
+        }else if (this.data.num < 10000000) {
+          count=0
           // console.log("触发点击事件，弹出toast")
+          count = count + 1
           var info = "打卡成功"
+          var date = new Date()
+          wx.request({
+            url: 'http://10.0.100.30:8095/client/checkIn/check/',
+            data:{
+              time: date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() + 1),
+              username:wx.getStorageSync("username")
+            },
+            success:function(e){
+              console.log("打卡成功")
+            },
+            fail:function(e){
+              console.log("打卡失败")
+            }
+          })
         } else {
+          count = 0
           var info = "距离太远，打卡失败"
         }
         that.setData({
           status: false,
-          info
+          info,
+          count
         })　　　　 //setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
       }
     });
