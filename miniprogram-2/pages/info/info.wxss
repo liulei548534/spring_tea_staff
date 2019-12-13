@@ -1,0 +1,27 @@
+.container{
+  width: 100%;
+ 
+}
+.container view{
+  display: flex;
+  flex-direction:row;
+  border-bottom: 1px solid gainsboro;
+   padding-top: 20rpx;
+  padding-bottom: 15rpx;
+  width: 90%;
+}
+.container input{
+  font-size: 32rpx;
+  padding-left: 25rpx;
+}
+.newpwd{
+  margin-left: 33rpx;
+}
+.sub{
+  background-color: green;
+  width: 80%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 35rpx;
+}
