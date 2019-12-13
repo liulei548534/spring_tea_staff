@@ -13,7 +13,8 @@
     "pages/details/details",
     "pages/password/password",
     "pages/lill/lill",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/info/info"
   ],
   "window": {
     "backgroundTextStyle": "dark",
