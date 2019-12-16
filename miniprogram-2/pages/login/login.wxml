@@ -3,7 +3,7 @@
 <view class="login_head">
   <form bindsubmit="formSubmit">
     <view class="login_text">
-      <navigator class="login_navigator" hover-class="none" url="../password/password" open-type="navigate">忘记密码？</navigator>
+      <navigator class="login_navigator" hover-class="none" url="../info/info" open-type="navigate">忘记密码？</navigator>
       <text class="login_te">账号登录</text>
     </view>
     <view>

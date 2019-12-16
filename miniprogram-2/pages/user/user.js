@@ -62,7 +62,6 @@ Page({
           info = "您已经打过卡了"
         }else if (this.data.num < 10000000) {
           count=0
-          // console.log("触发点击事件，弹出toast")
           count = count + 1
           var info = "打卡成功"
           var date = new Date()
@@ -90,7 +89,6 @@ Page({
         })　　　　 //setData方法可以建立新的data属性，从而起到跟视图实时同步的效果
       }
     });
-    // console.log(this.data.num)
   },
   toastHide: function(e) {
     console.log(this.data.status + "===" + this.data.info + "==" + this.data.num)
@@ -204,7 +202,7 @@ Page({
   //密码修改跳转
   updateClick: function () {
     wx.navigateTo({
-      url: '../password/password',
+      url: '../info/info',
     })
   },
    //假期查询跳转
