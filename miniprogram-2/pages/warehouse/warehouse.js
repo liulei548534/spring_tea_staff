@@ -11,6 +11,7 @@ Page({
         content: '',
         //商品信息
         shangpingInfo:[],
+    
     },
     /**
      * item点击事件
@@ -119,7 +120,8 @@ Page({
 
     },
     //茶
-    teaClick:function(){
+    teaClick:function(e){
+      console.log(e.currentTarget)
       var shangpInfo = []
       var shang = wx.getStorageSync("orderList")
       for (var i = 0; i < shang.length; i++) {

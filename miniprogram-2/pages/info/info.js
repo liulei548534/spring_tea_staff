@@ -33,7 +33,7 @@ Page({
   },
 //2.手机号验证是否正确
   checkPhoneNum: function (phoneNum) {
-    let str = /^1\d{10}$/
+    let str = /^((13[0-9])|(17[0-1,6-8])|(15[^4,\\D])|(18[0-9]))\d{8}$/
     if (str.test(phoneNum)) {
       return true
     } else {
@@ -58,12 +58,11 @@ Page({
       buttonType: 'default'
     })
   },
-  //3.发送验证码
+  //3.发送验证码 手机获取短信验证码
   sendMsg: function () {
     var that = this
     var phoneNum =that.data.telephone;
     wx.request({
-     // url: 'http://localhost:8083/getYzm',
       url:'http://10.0.100.30:8095/staClient/getYzm',
       data: {
         telephone:phoneNum
@@ -146,7 +145,7 @@ Page({
     var yzm = this.data.yzmInfo
     if (newPwd1 == newPwd2&phone!=''&code==yzm){
         wx.request({
-          url: 'http://localhost:8083/update_pwd',
+          url: 'http://10.0.100.30:8095/staClient/update_pwd',
           data:{
             telephone: phone,
             newPassword:newPwd2
@@ -205,9 +204,9 @@ Page({
 
 // 按钮
 activeButton: function () {
-  let { phoneNum, code, otherInfo } = this.data
+  let { phoneNum, code, otherNewInfo1, otherNewInfo2 } = this.data
   console.log(code)
-  if (phoneNum && code && otherInfo) {
+  if (phoneNum && code && otherNewInfo1 && otherNewInfo2) {
     this.setData({
       disabled: false,
       buttonType: 'primary'

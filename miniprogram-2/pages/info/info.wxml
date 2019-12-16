@@ -1,6 +1,8 @@
 <!--info.wxml-->
 <view class="container">
- 
+ <view class="top">
+    <image src="../../images/tea.jpg"></image>
+ </view>
 <view class="section">
 <text>手机号码</text>
 <input placeholder="请输入手机号码" type="number" maxlength="11" bindinput="inputPhoneNum" auto-focus />
@@ -15,14 +17,13 @@
  
 <view class="section">
 <text>新密码</text>
-<input class="newpwd" placeholder="修改的新密码" value="{{otherNewInfo1}}" bindblur="addOtherInfo1" />
+<input class="newpwd" placeholder="修改的新密码" type="password"value="{{otherNewInfo1}}" bindblur="addOtherInfo1" />
 </view>
 
-<view class="section">
+  <view class="section">
 <text>确认密码</text>
-<input placeholder="确认新密码" value="{{otherNewInfo2}}" bindblur="addOtherInfo2" />
+<input placeholder="确认新密码" type="password" value="{{otherNewInfo2}}" bindblur="addOtherInfo2" />
 </view>
  
- 
-<button class="sub" bindtap="onSubmit" >提交</button>
+<button class="sub" bindtap="onSubmit">提交</button>
  </view>
