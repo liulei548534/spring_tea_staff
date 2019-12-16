@@ -54,6 +54,7 @@ Page({
       },
       success: function(res) {
         if (res.data == true) {
+          wx.clearStorage("flag")
           wx.setStorageSync("username",tel)
           wx.switchTab({
             url: '../user/user',

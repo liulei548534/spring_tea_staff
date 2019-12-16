@@ -65,6 +65,7 @@ Component({
         },
         success:function(e){
           var allDate = e.data.checkIn
+          console.log(allDate)
           var array = []
           allDate.forEach((v,i)=>true?array.push({
             year:v.checkInYear,
@@ -74,7 +75,14 @@ Component({
           that.setData({
             allDate:array
           })
-          that.info(array)
+          if (array.length == 0){
+          wx.showModal({
+            title: '当前没有您的打卡信息',
+            content: '',
+          })
+         }else{
+           that.info(array)
+         }
         }
       })
     },
@@ -228,7 +236,7 @@ Component({
           }
         }
         for(let k = 0;k<this.data.isselect.length;k++){
-          if(Number(i) === this.data.isselect[k]){
+          if (Number(i) === parseInt(this.data.isselect[k])){
             isSelect=true;
           }
         }
@@ -303,14 +311,10 @@ Component({
         var my_this = this
         var count=0
         console.log(allDate)
-      var riqi = []
-      // allData[i].day.forEach((v, i) => true ? riqi.push(parseInt(v)) : "")
-      allDate.forEach((v, i) => v.year == year ? (v.month == month ? function(){
-        console.log("我是你爸爸")
-        my_this.setData({
-          // isselect:
+      allDate.forEach((v, i) => v.year == year ? (v.month == month ?my_this.setData({
+          isselect:allDate[i].day
       })
-      }:count++):my_this.setData({
+      :count++):my_this.setData({
         isselect:[]
       }))
       if (count == allDate.length) {

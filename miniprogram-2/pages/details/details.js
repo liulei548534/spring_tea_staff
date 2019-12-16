@@ -6,142 +6,79 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //每点击不显示
-    showModal: false,
-    changeColor: [
-      {
-        name: "催上",
-        isSelect: false
-      }, {
-        name: "已退",
-        isSelect: false
-      }
-    ],
-    isFinish: "订单",
-    order: [{
-      isSelect: false
-    },],
-    count: 3,
-    num: "",
-    price: "",
-    id: 0,
+    haveFinish:[],
     bussness: [{}],
-    index_five: []
+    index_five: [],
+    num:'',
+    count:0
   },
-  //点击 单个删除 
-  shanchuTap: function (e) {
+  shanchuTap:function(e){
+    var count = this.data.count;
+    var my_this = this
     wx.showModal({
       content: '确认菜品？',
-      success(res) {
-        if (res.confirm) {
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+      success(res){
+        if(res.confirm){
+          var index = e.currentTarget.dataset.index
+          var date = my_this.data.haveFinish
+          if (date[index].finish) {
+            date[index].finish = false
+          } else {
+            date[index].finish = true
+          }
+          my_this.setData({
+            haveFinish: date
+          })
+          count++
+          my_this.setData({
+            count
+          })
+          if (count == my_this.data.index_five.list.length){
+              wx.showModal({
+                content: '菜品已上完，是否删除该订单',
+                success(res){
+                  if(res.confirm){
+                    app.globalData.ingOrder.splice(my_this.data.num,1)
+                    app.globalData.haveFinish.splice(my_this.data.num,1)
+                    my_this.setData({
+                      index_five:[],
+                      num:""
+                    })
+                  }
+                }
+              })
+          }
         }
       }
-    });
+    })
   },
   changeColor: function (e) {
     var index = e.currentTarget.dataset.index
     var indexs = index.split("/")
-    var date = this.data.index_five[0].list
+    var date = this.data.index_five.list
     var that = this
-    // date.forEach((v,i)=>i==indexs[1]?change(e):"")
-    for (var i = 0; i < date.length; i++) {
-      if (i == indexs[1]) {
-        var data = that.data.changeColor
-        if (!data[indexs[0]].isSelect) {
-
-          data.forEach((v, i) => i == indexs[0] ? v.isSelect = true : ""
-          )
-        } else {
-          data.forEach((v, i) => i == indexs[0] ? v.isSelect = false : ""
-          )
-        }
-        // 设置数据
-        that.setData({
-          changeColor: data
-        })
-      } else {
-        console.log("songmingjie")
-      }
+    if (date[indexs[0]].isSelect) {
+      date[indexs[0]].isSelect = false
+    } else {
+      date[indexs[0]].isSelect = true
     }
-
-    function change(e) {
-      var data = that.data.changeColor
-      if (!data[indexs[0]].isSelect) {
-
-        data.forEach((v, i) => i == indexs[0] ? v.isSelect = true : ""
-        )
-      } else {
-        data.forEach((v, i) => i == indexs[0] ? v.isSelect = false : ""
-        )
-      }
-      // 设置数据
-      that.setData({
-        changeColor: data
-      })
-    }
-
-
-
+    var conne = that.data.index_five
+    conne.list = date
+    that.setData({
+      index_five: conne
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    var num = options.index
     var message = app.globalData.ingOrder[options.index]
+    var haveFinish = app.globalData.haveFinish[options.index]
     this.setData({
-      index_five:message
+      index_five:message,
+      haveFinish,
+      num
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-   
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

@@ -69,14 +69,13 @@ Page({
           wx.request({
             url: 'http://10.0.100.30:8095/client/checkIn/check/',
             data:{
-              time: date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() + 1),
+              time: date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate(),
               username:wx.getStorageSync("username")
             },
             success:function(e){
-              console.log("打卡成功")
             },
             fail:function(e){
-              console.log("打卡失败")
+            
             }
           })
         } else {
@@ -143,8 +142,31 @@ Page({
       currenTime: hours + ":" + minute,
       show: true
     })
-  },
+    this.socket()
 
+  },
+  socket:function(){
+    var myThis = this;
+    var flag = wx.getStorageSync("flag")
+    if (flag == "") {
+      wx.connectSocket({
+        url: 'ws://10.0.100.30:8090/websocket/24'
+      })
+      wx.onSocketOpen(function (res) {
+        console.log("链接服务器成功")
+      })
+      wx.setStorageSync("flag", true)
+    }
+    wx.onSocketMessage(function (res) {
+      var message = JSON.parse(res.data)
+      app.globalData.ingOrder.push(message[0])
+      wx.showToast({
+        title: '您有新的订单',
+        icon: 'none',
+        duration: 2000
+      })
+    })
+  },
 
 
   /**

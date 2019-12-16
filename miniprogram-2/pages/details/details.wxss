@@ -44,7 +44,6 @@
 }
 
 .back {
-    text-align: right;
     position: relative;
     text-align: center;
 }
@@ -66,8 +65,12 @@
     color: #999999;
     font-size: 30rpx;
 }
-
 .color {
     background-color: palegreen;
     color: black
+}
+.color-red{
+   color: white !important;
+   font-weight: 600 !important;
+  background-color:#f40;
 }

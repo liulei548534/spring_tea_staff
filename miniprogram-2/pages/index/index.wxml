@@ -10,7 +10,7 @@
         </view>
         <view class="index_four">
             <view class="back index_b" wx:if="{{item.status=='正在进行'}}">
-                <button bindtap='shanchuTap' wx-index="{{index}}">确认</button>
+                <button data-value="{{index}}" bindtap='shanchuTap'>确认</button>
             </view>
             <view class="index_bj">
                 包间：{{item.order_package}}

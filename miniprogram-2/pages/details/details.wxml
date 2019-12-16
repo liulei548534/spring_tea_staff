@@ -9,9 +9,9 @@
                 <text class="interval unm">数量： {{item0.num}}</text>
             </view>
             <view class="back" wx:if="{{item0.num!=0}}">
-                <button class="back_c" bindtap='shanchuTap'>已上</button>
-                <button class="back_c {{item.isSelect?'color':''}}" wx:for="{{changeColor}}" data-index="{{index+'/'+index2}}" 
-                bindtap="changeColor">{{item.name}}</button>
+                <button class="back_c {{haveFinish[index2].finish?'color-red':''}}" bindtap="{{haveFinish[index2].finish?'':'shanchuTap'}}" data-index="{{index2}}">已上</button>
+                <button class="back_c {{item0.isSelect?'':'color'}} {{haveFinish[index2].finish?'color-red':''}}" data-index="{{index2+'/催上'}}" bindtap="{{haveFinish[index2].finish?'':'changeColor'}}">催上</button>
+                 <button class="back_c {{haveFinish[index2].finish?'color-red':''}}" bindtap="{{haveFinish[index2].finish?'':'cancel'}}">退回</button>
             </view>
         </view>
     </view>
