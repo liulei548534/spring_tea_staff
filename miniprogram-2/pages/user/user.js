@@ -124,8 +124,7 @@ Page({
       url: 'http://10.0.100.30:8095/staClient/selectInfo',
 
     data:{
-       name:'liulei',
-       telephone:'13458552184'   
+      telephone: wx.getStorageSync('username')   
     },
       header: {
         'content-type': 'application/json' // 默认值
@@ -148,7 +147,7 @@ Page({
     var flag = wx.getStorageSync("flag")
     if (flag == "") {
       wx.connectSocket({
-        url: 'ws://10.0.100.30:8090/websocket/24'
+        url: 'ws://10.0.100.30:8090/websocket/'+wx.getStorageSync('username')
       })
       wx.onSocketOpen(function (res) {
         console.log("链接服务器成功")
