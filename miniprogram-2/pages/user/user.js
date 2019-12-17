@@ -27,7 +27,6 @@ Page({
       success: (result) => {
         const latitude1 = result.latitude
         const longitude1 = result.longitude
-        console.log(longitude1 + "-----" + latitude1)
         const latitude2 = 30.61859;
         const longitude2 = 104.06776;
         var EARTH_RADIUS = 6378.137; //地球半径
@@ -49,7 +48,6 @@ Page({
           s = Math.round(s * 10000) / 10000;
           return s;
         }
-        console.log(num * 2000)
         num = num * 2000
         that.setData({
           num:num
@@ -60,7 +58,7 @@ Page({
         var count = that.data.count
         if (count>0){
           info = "您已经打过卡了"
-        }else if (this.data.num < 10000000) {
+        }else if (this.data.num < 500) {
           count=0
           count = count + 1
           var info = "打卡成功"
@@ -90,8 +88,6 @@ Page({
     });
   },
   toastHide: function(e) {
-    console.log(this.data.status + "===" + this.data.info + "==" + this.data.num)
-    console.log("触发bindchange，隐藏toast")
     status = true
     this.setData({
       status: status
@@ -130,7 +126,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data.userInfo)
         wx.setStorageSync("uIfo", res.data.userInfo)
       }
     })
@@ -150,7 +145,6 @@ Page({
         url: 'ws://10.0.100.30:8090/websocket/'+wx.getStorageSync('username')
       })
       wx.onSocketOpen(function (res) {
-        console.log("链接服务器成功")
       })
       wx.setStorageSync("flag", true)
     }
@@ -182,61 +176,11 @@ Page({
       innerAudioContext.autoplay = true
       innerAudioContext.src = '/pages/123.mp3'
       innerAudioContext.onPlay(() => {
-        console.log('开始播放')
       })
       innerAudioContext.onError((res) => {
-        console.log(res.errMsg)
-        console.log(res.errCode)
+
       })
     }
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   },
   //库存查询跳转
   kucunClick:function(){

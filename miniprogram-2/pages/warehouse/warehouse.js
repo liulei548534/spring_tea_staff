@@ -17,7 +17,6 @@ Page({
      * item点击事件
      */
     choiceType: function (event) {
-        console.log(event);
         var id = event.currentTarget.dataset.item.id;
         var curIndex = 0;
         for (var i = 0; i < this.data.tablist.length; i++) {
@@ -121,7 +120,6 @@ Page({
     },
     //茶
     teaClick:function(e){
-      console.log(e.currentTarget)
       var shangpInfo = []
       var shang = wx.getStorageSync("orderList")
       for (var i = 0; i < shang.length; i++) {

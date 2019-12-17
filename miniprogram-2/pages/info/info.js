@@ -80,7 +80,6 @@ Page({
           that.data.yzmInfo = ''
           return;
         }else{
-          console.log(res.data.dx_yzm)
           that.data.yzmInfo = res.data.dx_yzm
         }
       }
@@ -205,7 +204,6 @@ Page({
 // 按钮
 activeButton: function () {
   let { phoneNum, code, otherNewInfo1, otherNewInfo2 } = this.data
-  console.log(code)
   if (phoneNum && code && otherNewInfo1 && otherNewInfo2) {
     this.setData({
       disabled: false,

@@ -37,15 +37,12 @@ Page({
   //手机号输入是否规范
   telinput: function(e) {
     var number = e.detail.value
-    console.log(number)
     if (number.length === 11) {
       let numberCh = this.phoneNumber(number)
-      console.log(numberCh)
       if (numberCh) {
         this.setData({
           number: number
         })
-        console.log('number' + this.data.number)
         this.showSend()
         this.activeButton()
       }
@@ -89,7 +86,6 @@ Page({
       code: e.detail.value
     })
     this.activeButton()
-    console.log('code' + this.data.code)
   },
 
   // 按钮
@@ -98,7 +94,6 @@ Page({
       number,
       code
     } = this.data
-    console.log(code)
     if (number && code) {
       this.setData({
         disabled: false,
@@ -130,10 +125,7 @@ Page({
   send: function() {
     var number = this.data.number
     var sessionId = wx.getStorageSync('sessionId')
-    // console.log(sessionId)
-    console.log(number);
     wx.request({
-      // url: `${config.api + '/sendSms.html'}`,
       url: 'http://localhost:8080/sendSms',
       data: {
         tel: number
@@ -144,7 +136,6 @@ Page({
       },
       // method: 'POST',
       success: function(res) {
-        console.log(res)
       }
     })
     this.setData({
@@ -181,7 +172,6 @@ Page({
       code: e.detail.value
     })
     this.activeButton()
-    console.log('code:' + this.data.code)
   },
 
   formSubmit:function(e){
@@ -189,7 +179,6 @@ Page({
     var code = e.detail.value.code
     var pwd = e.detail.value.pwd
     var pwds = e.detail.value.pwds
-    console.log("用户"+tel+"code"+code+"pwd"+pwd+"pwds"+pwds)
     // var sessionId=this.data.sessionId;
     wx.request({
       url: 'http://localhost:8080/addTel',
@@ -205,7 +194,6 @@ Page({
       },
       // method: 'POST',
       success: function(res) {
-        console.log('回调函数'+res.data)
         if((parseInt(res.statusCode)===200)&&res.data.massage==='pass'){
           wx.showToast({
             title: '验证成功',
@@ -223,72 +211,7 @@ Page({
         }
       },
       fail: function(res) {
-        console.log(res)
       },
     })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-
-  },
-
-   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  //   wx.request({
-  //     // url: `${config.api + '/getSessionId.html'}`,
-  //     url: 'http://localhost:8080/getSessionId',
-  //     header: {
-  //       "Content-Type": "application/x-www-form-urlencoded"
-  //     },
-  //     // method: 'POST',
-  //     success: function (res) {
-  //       wx.setStorageSync('sessionId', 'JSESSIONID=' + res.data)
-  //     }
-  //   })
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
 })

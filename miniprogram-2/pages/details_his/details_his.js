@@ -20,7 +20,6 @@ Page({
     this.setData({
       index_five: historyOrder[options.num]
     })
-    console.log(this.data.index_five)
   },
 
   /**

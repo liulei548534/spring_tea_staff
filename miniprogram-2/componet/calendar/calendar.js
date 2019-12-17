@@ -1,4 +1,4 @@
-// components/calendar/calendar.js
+
 /**
  * 日历选择组件
  * 2018-03-04
@@ -65,7 +65,6 @@ Component({
         },
         success:function(e){
           var allDate = e.data.checkIn
-          console.log(allDate)
           var array = []
           allDate.forEach((v,i)=>true?array.push({
             year:v.checkInYear,
@@ -96,7 +95,6 @@ Component({
           isselect: riqi
         })
       }
-      console.log(this.data.isselect)
       var ddd = this.data.ddd
       if (ddd == "") {
         var dateDate = new Date()
@@ -104,9 +102,6 @@ Component({
       }
       this.getWeek(ddd)
       this.isSelect(ddd)
-      // var new_array = 
-      // console.log(new_array)
-
       if (this.data.isOpen) {
         return
       }
@@ -185,7 +180,6 @@ Component({
       }
       let year = this.data.canlender.year + "-" + this.data.canlender.month + "-" + this.data.canlender.date
       let _date = this.getDate(year, num, types === 'month' ? "month" : "day");
-      console.log(_date)
       this.isSelect(_date)
       this.getWeek(_date);
       this.setData({
@@ -196,7 +190,6 @@ Component({
     getWeek(dateData) {
       let selected = this.data.selected
       let a = new Date()
-      // console.log("im date ", a, typeof a === 'object')
       // 判断当前是 安卓还是ios ，传入不容的日期格式
       if (typeof dateData !== 'object') {
         dateData = dateData.replace(/-/g, "/")
@@ -207,7 +200,6 @@ Component({
       let date = _date.getDate();//日
       let day = _date.getDay();// 天
       let canlender = [];
-      // console.log(selected)
       let dates = {
         firstDay: new Date(year, month - 1, 1).getDay(),
         lastMonthDays: [],// 上个月末尾几天
@@ -303,14 +295,11 @@ Component({
       return y + '-' + m + '-' + d
     },
     isSelect: function (_date){
-      console.log(this.data.isselect)
         var allDate = this.data.allDate
-        console.log(allDate)
         var year = _date.split("-")[0]
         var month = _date.split("-")[1]
         var my_this = this
         var count=0
-        console.log(allDate)
       allDate.forEach((v, i) => v.year == year ? (v.month == month ?my_this.setData({
           isselect:allDate[i].day
       })

@@ -69,7 +69,6 @@ Page({
         url: 'ws://10.0.100.30:8090/websocket/'+wx.getStorageSync("username")
       })
       wx.onSocketOpen(function(res) {
-        console.log("链接服务器成功")
       })
       wx.setStorageSync("flag", true)
     }else{
@@ -108,10 +107,8 @@ Page({
       var info = myThis.data.info
       for (var i = 0; i < myThis.data.index_five.length; i++) {
         info.push({})
-        console.log(info[i])
       }
       var isWho = "";
-      console.log(myThis.data.index_five)
       if (myThis.data.index_five[0].list.length == 0) {
         isWho = "one"
       } else {
@@ -134,7 +131,6 @@ Page({
   },
   onShow: function() {
     app.globalData.ingOrder.forEach((v, i) => v == undefined ? app.globalData.ingOrder.splice(i,1):"")
-    console.log()
     this.setData({
       index_five: app.globalData.ingOrder
     })
@@ -166,11 +162,9 @@ Page({
       innerAudioContext.autoplay = true
       innerAudioContext.src = '/pages/123.mp3'
       innerAudioContext.onPlay(() => {
-        console.log('开始播放')
       })
       innerAudioContext.onError((res) => {
-        console.log(res.errMsg)
-        console.log(res.errCode)
+   
       })
     }
   }

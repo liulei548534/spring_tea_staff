@@ -1,7 +1,7 @@
 <!-- 搜索框 -->
 <view class="search_head" hover-class="none">
   <view class="left">
-    <input bindinput="handInput" value="{{quxiao}}">
+    <input class="but" bindinput="handInput" value="{{quxiao}}">
     </input>
   </view>
   <view class="right" bindtap="quxiao">取消</view>

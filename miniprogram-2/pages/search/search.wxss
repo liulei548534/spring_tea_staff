@@ -23,6 +23,7 @@ page{
   text-align: center;
   width: 100%;
   margin: 0 10rpx 0 40rpx;
+  line-height: 80rpx;
   flex: 1;
   background-color: #fff;
 }
@@ -55,4 +56,7 @@ page{
 }
 .redColor{
   color: red;
+}
+.but{
+  height: 80rpx;
 }

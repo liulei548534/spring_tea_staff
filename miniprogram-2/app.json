@@ -9,10 +9,8 @@
     "pages/vacation/vacation",
     "pages/wages/wages",
     "pages/work/work",
-    "pages/ElasticFrame/ElasticFrame",
     "pages/details/details",
     "pages/password/password",
-    "pages/lill/lill",
     "pages/search/search",
     "pages/info/info"
   ],
