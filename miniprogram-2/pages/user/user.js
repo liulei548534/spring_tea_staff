@@ -157,6 +157,7 @@ Page({
     wx.onSocketMessage(function (res) {
       var message = JSON.parse(res.data)
       app.globalData.ingOrder.push(message[0])
+      myThis.info()
       wx.showToast({
         title: '您有新的订单',
         icon: 'none',
@@ -164,8 +165,31 @@ Page({
       })
     })
   },
-
-
+  info: function () {
+    // 震动
+    function vibration() {
+      var that = this
+      wx.vibrateLong({
+        success: function () {
+          voice()
+        }
+      })
+    }
+    vibration()
+    // 语音播报
+    function voice() {
+      const innerAudioContext = wx.createInnerAudioContext()
+      innerAudioContext.autoplay = true
+      innerAudioContext.src = '/pages/123.mp3'
+      innerAudioContext.onPlay(() => {
+        console.log('开始播放')
+      })
+      innerAudioContext.onError((res) => {
+        console.log(res.errMsg)
+        console.log(res.errCode)
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
