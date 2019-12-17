@@ -66,7 +66,7 @@ Page({
     var flag = wx.getStorageSync("flag")
     if (flag == "") {
       wx.connectSocket({
-        url: 'ws://10.0.100.30:8090/websocket/24'
+        url: 'ws://10.0.100.30:8090/websocket/'+wx.getStorageSync("username")
       })
       wx.onSocketOpen(function(res) {
         console.log("链接服务器成功")
@@ -124,6 +124,7 @@ Page({
         [up]: true,
         index: 0
       })
+      myThis.info()
       wx.showToast({
         title: '您有新的订单',
         icon: 'none',
@@ -148,4 +149,29 @@ Page({
       index: 0
     })
   },
+  info: function () {
+    // 震动
+    function vibration() {
+      var that = this
+      wx.vibrateLong({
+        success: function () {
+          voice()
+        }
+      })
+    }
+    vibration()
+    // 语音播报
+    function voice() {
+      const innerAudioContext = wx.createInnerAudioContext()
+      innerAudioContext.autoplay = true
+      innerAudioContext.src = '/pages/123.mp3'
+      innerAudioContext.onPlay(() => {
+        console.log('开始播放')
+      })
+      innerAudioContext.onError((res) => {
+        console.log(res.errMsg)
+        console.log(res.errCode)
+      })
+    }
+  }
 })
